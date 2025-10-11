@@ -9,10 +9,12 @@
 
 :root{
     --primary: #00FFFF;
-
+    --black: #000;
+    --text-color: #333;
     // Default layout
     --default-layout-header-height: 60px;
     --default-layout-width: 1150px;
+
 
 }
 
@@ -25,4 +27,13 @@ body{
     font-size: 1.6rem;
     line-height: 1.5;
     text-rendering: optimizeLegibility;
+}
+button, input, [tabindex]{
+    caret-color: var(--primary);
+    border: none;
+    outline: none;
+}
+a[href]{
+    color: var(--text-color);
+    text-decoration: none;
 }
