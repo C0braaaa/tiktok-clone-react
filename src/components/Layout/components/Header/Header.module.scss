@@ -18,10 +18,14 @@
     align-items: center;
     justify-content: space-between;
 }
+
+.search, .search-result{
+    width: 361px;
+}
+
 .search{
     position: relative;
     border-radius: var(--search-border-radius);
-    width: 361px;
     height: var(--search-height);
     background-color: rgb(22, 24, 35, .06);
     padding-left: 16px;
@@ -87,4 +91,11 @@
     &:active{
         background-color: rgb(22, 24, 35, .06);
     }
+}
+
+.search-title{
+    color: rgb(22, 24, 35, .5);
+    font-size: 1.4rem;
+    font-weight: 600;
+    padding: 5px 12px;
 }
