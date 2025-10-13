@@ -17,6 +17,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding: 0 var(--default-layout-horizontal-spacer);
 }
 
 .search, .search-result{
@@ -98,4 +99,38 @@
     font-size: 1.4rem;
     font-weight: 600;
     padding: 5px 12px;
+}
+
+// actions
+.action{
+    display: flex;
+    align-items: center;
+    
+    .action-btn{
+        background-color: transparent;
+        font-size: 2.2rem;
+        color: rgb(22, 24, 35);
+        padding: 4px 12px;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+    }
+
+    .user-avatar{
+        width: 3.2rem;
+        height: 3.2rem;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-left: 12px;
+        cursor: pointer;
+    }
+}
+
+
+.more-btn{
+    font-size: 2rem;
+    margin-left: 26px;
+    background-color: transparent;
+    padding: 4px 8px;
+    cursor: pointer;
 }
