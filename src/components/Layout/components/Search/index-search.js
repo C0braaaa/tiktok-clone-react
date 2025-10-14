@@ -6,6 +6,8 @@ import { faCircleXmark, faMagnifyingGlass, faSpinner } from '@fortawesome/free-s
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import classNames from 'classnames/bind';
 import styles from './Search.module.scss';
+import useDebounce from '~/hooks/useDebounce';
+import * as searchServices from '~/apiServices/searchServices';
 
 const cx = classNames.bind(styles);
 
@@ -14,25 +16,28 @@ function Search() {
     const [searchResult, setSearchResult] = useState([]);
     const [showResult, setShowResult] = useState(true);
     const [loading, setLoading] = useState(false);
+    const [searchTerm, setSearchTerm] = useState('');
+
+    const debounced = useDebounce(searchText, 500);
 
     const inputRef = useRef();
 
     useEffect(() => {
-        if (!searchText.trim()) {
+        if (!debounced.trim()) {
             setSearchResult([]);
             return;
         }
 
-        setLoading(true);
+        const fetchApi = async () => {
+            setLoading(true);
+            const result = await searchServices.search(debounced);
+            setSearchResult(result);
 
-        fetch(`https://tiktok.fullstack.edu.vn/api/users/search?q=${encodeURIComponent(searchText)}&type=less`)
-            .then((res) => res.json())
-            .then((res) => {
-                setSearchResult(res.data);
-                setLoading(false);
-            })
-            .catch(() => setLoading(false));
-    }, [searchText]);
+            setLoading(false);
+        };
+
+        fetchApi();
+    }, [debounced]);
 
     const handleClear = () => {
         setSearchText('');
@@ -55,6 +60,7 @@ function Search() {
                         {searchResult.map((result) => {
                             return <AccountItem key={result.id} data={result} />;
                         })}
+                        <h4 className={cx('search-term')}>View all results for "{searchTerm}"</h4>
                     </PopperWrapper>
                 </div>
             )}
@@ -66,7 +72,10 @@ function Search() {
                     value={searchText}
                     placeholder="Search accounts and video"
                     spellCheck={false}
-                    onChange={(e) => setSearchText(e.target.value)}
+                    onChange={(e) => {
+                        setSearchText(e.target.value);
+                        setSearchTerm(e.target.value);
+                    }}
                     onFocus={() => setShowResult(true)}
                 />
                 {!!searchText && !loading && (
