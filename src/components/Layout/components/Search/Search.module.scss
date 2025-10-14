@@ -50,6 +50,19 @@
     cursor: pointer;
 }
 
+.loading{
+    animation: spinner 1s linear infinite;
+}
+
+@keyframes spinner{
+    from{
+        transform: translateY(-50%) rotate(0);
+    }
+    to{
+        transform: translateY(-50%) rotate(360deg);
+    }
+}
+
 .search-btn{
     width: var(--search-button-width);
     height: 100%;
@@ -73,4 +86,7 @@
     font-size: 1.4rem;
     font-weight: 600;
     padding: 5px 12px;
+}
+.no-result{
+    text-align: center;
 }
