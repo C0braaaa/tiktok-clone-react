@@ -13,6 +13,10 @@
     padding-bottom: 8px;
 }
 
+.menu-body{
+    overflow-y: auto;
+}
+
 .menu-item{
     width: 100%;
     justify-content: flex-start;
@@ -20,7 +24,7 @@
     padding: 12px 16px;
     border: 0;
     line-height: 1.8rem;
-    // font-weight: 600;
+    font-weight: 600;
 
     &:hover{
         background-color: rgb(22, 24, 35, .03);
@@ -35,6 +39,7 @@
 // Header Menu
 .header{
     position: relative;
+    flex-shrink: 0;
     height: 50px;
     margin-top: -8px;
 }

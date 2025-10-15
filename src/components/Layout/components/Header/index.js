@@ -33,8 +33,33 @@ const MENU_ITEMS = [
             data: [
                 {
                     type: 'languages',
+                    code: 'ar',
+                    title: 'Arabic',
+                },
+                {
+                    type: 'languages',
+                    code: 'bn',
+                    title: 'Bengali',
+                },
+                {
+                    type: 'languages',
+                    code: 'de',
+                    title: 'German',
+                },
+                {
+                    type: 'languages',
+                    code: 'el',
+                    title: 'Greek',
+                },
+                {
+                    type: 'languages',
                     code: 'en',
                     title: 'English',
+                },
+                {
+                    type: 'languages',
+                    code: 'es',
+                    title: 'Spanish',
                 },
                 {
                     type: 'languages',
@@ -43,8 +68,8 @@ const MENU_ITEMS = [
                 },
                 {
                     type: 'languages',
-                    code: 'de',
-                    title: 'German',
+                    code: 'hi',
+                    title: 'Hindi',
                 },
                 {
                     type: 'languages',
@@ -63,6 +88,16 @@ const MENU_ITEMS = [
                 },
                 {
                     type: 'languages',
+                    code: 'nl',
+                    title: 'Dutch',
+                },
+                {
+                    type: 'languages',
+                    code: 'pl',
+                    title: 'Polish',
+                },
+                {
+                    type: 'languages',
                     code: 'pt',
                     title: 'Portuguese',
                 },
@@ -73,13 +108,28 @@ const MENU_ITEMS = [
                 },
                 {
                     type: 'languages',
-                    code: 'es',
-                    title: 'Spanish',
+                    code: 'sv',
+                    title: 'Swedish',
+                },
+                {
+                    type: 'languages',
+                    code: 'th',
+                    title: 'Thai',
+                },
+                {
+                    type: 'languages',
+                    code: 'tr',
+                    title: 'Turkish',
                 },
                 {
                     type: 'languages',
                     code: 'vi',
                     title: 'Vietnamese',
+                },
+                {
+                    type: 'languages',
+                    code: 'zh',
+                    title: 'Chinese',
                 },
             ],
         },
@@ -147,19 +197,19 @@ function Header() {
                 <div className={cx('action')}>
                     {currentUser ? (
                         <>
-                            <Tippy delay={[0, 200]} content="Upload video">
+                            <Tippy delay={[0, 50]} content="Upload video">
                                 <Link to={routesConfig.upload}>
                                     <button className={cx('action-btn')}>
                                         <UploadIcon width="28px" height="28px" />
                                     </button>
                                 </Link>
                             </Tippy>
-                            <Tippy delay={[0, 200]} content="Message">
+                            <Tippy delay={[0, 50]} content="Message">
                                 <button className={cx('action-btn')}>
                                     <MessagesIcon width="28px" height="28px" />
                                 </button>
                             </Tippy>
-                            <Tippy delay={[0, 200]} content="Inbox">
+                            <Tippy delay={[0, 50]} content="Inbox">
                                 <button className={cx('action-btn')}>
                                     <InboxIon width="34px" height="34px" />
                                     <span className={cx('badge')}>36</span>

@@ -58,6 +58,24 @@ body{
     line-height: 1.5;
     text-rendering: optimizeLegibility;
 }
+
+/* Scrollbar Css */
+
+html *::-webkit-scrollbar{
+    border-radius: 0;
+    width: 8px;
+}
+
+html *::-webkit-scrollbar-thumb{
+    border-radius: 4px;
+    background-color: rgb(0, 0, 0, .15);
+}
+
+html *::-webkit-scrollbar-track{
+    border-radius: 4px;
+     background-color: rgb(0, 0, 0, 0);
+}
+
 button, input, [tabindex]{
     caret-color: var(--primary);
     border: none;
