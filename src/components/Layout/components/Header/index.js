@@ -19,6 +19,9 @@ import Menu from '~/components/Popper/Menu/index-menu';
 import { InboxIon, MessagesIcon, UploadIcon } from '~/components/Icons/index-icon';
 import Image from '~/components/Image/index-image';
 import Search from '../Search/index-search';
+import { Link } from 'react-router-dom';
+// routes config
+import routesConfig from '~/config/routes';
 
 const cx = className.bind(styles);
 const MENU_ITEMS = [
@@ -134,9 +137,9 @@ function Header() {
     return (
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
-                <div className={cx('logo')}>
+                <Link to={routesConfig.home} className={cx('logo')}>
                     <img src={images.logo} alt="Logo Tiktok" />
-                </div>
+                </Link>
 
                 {/* Search */}
                 <Search />
@@ -145,9 +148,11 @@ function Header() {
                     {currentUser ? (
                         <>
                             <Tippy delay={[0, 200]} content="Upload video">
-                                <button className={cx('action-btn')}>
-                                    <UploadIcon width="28px" height="28px" />
-                                </button>
+                                <Link to={routesConfig.upload}>
+                                    <button className={cx('action-btn')}>
+                                        <UploadIcon width="28px" height="28px" />
+                                    </button>
+                                </Link>
                             </Tippy>
                             <Tippy delay={[0, 200]} content="Message">
                                 <button className={cx('action-btn')}>
@@ -173,7 +178,6 @@ function Header() {
                                 className={cx('user-avatar')}
                                 src="//assets.manutd.com/AssetPicker/images/0/0/22/86/1464035/7_Mason_Mount1751376357453.webp"
                                 alt="C0bra"
-                                fallback={images.noImage}
                             />
                         ) : (
                             <button className={cx('more-btn')}>
