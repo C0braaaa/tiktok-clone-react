@@ -21,7 +21,7 @@ import Image from '~/components/Image/index-image';
 import Search from '../Search/index-search';
 import { Link } from 'react-router-dom';
 // routes config
-import routesConfig from '~/config/routes';
+import config from '~/config/index-config';
 
 const cx = className.bind(styles);
 const MENU_ITEMS = [
@@ -187,7 +187,7 @@ function Header() {
     return (
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
-                <Link to={routesConfig.home} className={cx('logo')}>
+                <Link to={config.routes.home} className={cx('logo')}>
                     <img src={images.logo} alt="Logo Tiktok" />
                 </Link>
 
@@ -198,7 +198,7 @@ function Header() {
                     {currentUser ? (
                         <>
                             <Tippy delay={[0, 50]} content="Upload video">
-                                <Link to={routesConfig.upload}>
+                                <Link to={config.routes.upload}>
                                     <button className={cx('action-btn')}>
                                         <UploadIcon width="28px" height="28px" />
                                     </button>
